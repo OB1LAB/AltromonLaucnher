@@ -1,0 +1,87 @@
+.changeLog {
+  display: flex;
+  flex-direction: column;
+  height: 405px;
+  max-height: 405px;
+  width: 630px;
+  padding: 10px;
+  overflow-y: scroll;
+  gap: 15px;
+  font-size: 18px;
+  .block {
+    padding: 7px;
+    background: #232323;
+    border-radius: 10px;
+    font-size: 16px;
+    &.update {
+      display: flex;
+      /*align-items: center;*/
+      gap: 8px;
+      font-size: 18px;
+      svg {
+        fill: white;
+        margin-left: auto;
+        width: 24px;
+        height: 30px;
+        cursor: pointer;
+        transition: 0.15s fill ease-in;
+        &:hover {
+          fill: #bbb;
+        }
+      }
+    }
+    .icon {
+      position: relative;
+      min-height: 30px;
+      min-width: 30px;
+      height: 30px;
+      width: 30px;
+      border-radius: 50px;
+    }
+    &.green .icon {
+      background: green;
+      span {
+        top: 4px;
+        left: 8px;
+        position: absolute;
+      }
+    }
+    &.orange .icon {
+      background: orange;
+      span {
+        top: 4px;
+        left: 2px;
+        position: absolute;
+      }
+    }
+    &.red .icon {
+      background: red;
+      span {
+        top: 4px;
+        left: 8px;
+        position: absolute;
+      }
+    }
+    &.text {
+      font-size: 30px;
+    }
+  }
+  .dateBlock {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    .border {
+      height: 2px;
+      width: 100%;
+      background: rgb(187,187,187);
+      background: linear-gradient(90deg, rgba(187,187,187,1) 0%, rgba(33,33,33,1) 100%);
+      clip-path: polygon(0 0, 100% 25%, 100% 75%, 0% 100%);
+    }
+  }
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

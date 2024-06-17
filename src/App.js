@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ButtonPlay from "./components/ButtonPlay/ButtonPlay";
+import ExternalInfo from "./components/ExternalInfo/ExternalInfo";
+import MemoryPicker from "./components/MemoryPicker/MemoryPicker";
+import HeaderButtons from "./components/HeaderButtons/HeaderButtons";
+import Description from "./components/Description/Description";
+import ChangeLog from "./components/ChangeLog/ChangeLog";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="launcher">
+      <div className="window">
+        <div className="header">
+          <div className="name">ALTROMON</div>
+          <HeaderButtons />
+        </div>
+        <div className="body">
+          <Description />
+          <ChangeLog />
+        </div>
+        <div className="footer">
+          <ButtonPlay />
+          <ExternalInfo />
+          <MemoryPicker />
+        </div>
+      </div>
     </div>
   );
 }
