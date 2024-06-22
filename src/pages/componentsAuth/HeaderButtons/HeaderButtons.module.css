@@ -1,0 +1,28 @@
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+  button {
+    background: transparent;
+    -webkit-app-region: no-drag;
+    svg {
+      width: 32px;
+      height: 32px;
+      transition: 0.15s color ease-in;
+      &:hover {
+        color: #bbbbbb;
+      }
+    }
+  }
+  .minus {
+    padding-top: 20px;
+  }
+  .close {
+    svg {
+      transform: rotate(45deg);
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}

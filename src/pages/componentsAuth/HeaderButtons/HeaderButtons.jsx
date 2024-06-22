@@ -1,17 +1,20 @@
-import GearCircleIcon from "@rsuite/icons/legacy/GearCircle";
 import MinusIcon from "@rsuite/icons/Minus";
 import PlusIcon from "@rsuite/icons/legacy/Plus";
 import styles from "./HeaderButtons.module.css";
+const { ipcRenderer } = window.require("electron");
 const HeaderButtons = () => {
   return (
     <div className={styles.buttons}>
-      <button>
-        <GearCircleIcon />
-      </button>
-      <button className={styles.minus}>
+      <button
+        className={styles.minus}
+        onClick={() => ipcRenderer.send("hide-window")}
+      >
         <MinusIcon />
       </button>
-      <button className={styles.close}>
+      <button
+        className={styles.close}
+        onClick={() => ipcRenderer.send("close-window")}
+      >
         <PlusIcon />
       </button>
     </div>

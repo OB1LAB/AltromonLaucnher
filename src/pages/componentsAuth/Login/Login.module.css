@@ -1,0 +1,56 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  .authText {
+    font-size: 20px;
+    font-weight: bold;
+    user-select: none;
+  }
+  .forms {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+  button {
+    outline: none;
+  }
+  input {
+    background: transparent;
+    outline: none;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    padding: 2px 7px;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    button {
+      font-size: 14px;
+      font-weight: bold;
+      background: #282828;
+      border-radius: 5px;
+      padding: 5px 0;
+      &:hover {
+        background: #3c3c3c;
+      }
+    }
+    .register {
+      font-size: 14px;
+      font-weight: normal;
+      background: transparent;
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+}

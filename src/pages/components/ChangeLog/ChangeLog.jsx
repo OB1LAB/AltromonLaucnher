@@ -125,15 +125,15 @@ const ChangeLog = () => {
                 return (
                   <div
                     key={actionIndex}
-                    className={`${styles.block} ${styles.update} ${action.type === "add" ? styles.green : action.type === "edit" ? styles.orange : styles.red}`}
+                    className={`${styles.block} ${styles.update}`}
                   >
                     <div className={styles.icon}>
                       {action.type === "add" ? (
-                        <span>✓</span>
+                        <img src="accept.png" alt="accept" />
                       ) : action.type === "edit" ? (
-                        <span style={{ scale: "0.9" }}>{"</>"}</span>
+                        <img src="wrench.png" alt="wrench" />
                       ) : (
-                        <span>✖</span>
+                        <img src="delete.png" alt="cancel" />
                       )}
                     </div>
                     {Object.keys(action).includes("about") ? (
@@ -146,7 +146,7 @@ const ChangeLog = () => {
                         </Accordion.Panel>
                       </Accordion>
                     ) : (
-                      <div>{action.content}</div>
+                      <div className={styles.center}>{action.content}</div>
                     )}
                   </div>
                 );

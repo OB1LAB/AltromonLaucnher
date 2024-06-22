@@ -15,7 +15,6 @@
     font-size: 16px;
     &.update {
       display: flex;
-      /*align-items: center;*/
       gap: 8px;
       font-size: 18px;
       svg {
@@ -30,37 +29,11 @@
         }
       }
     }
-    .icon {
-      position: relative;
-      min-height: 30px;
-      min-width: 30px;
-      height: 30px;
-      width: 30px;
-      border-radius: 50px;
-    }
-    &.green .icon {
-      background: green;
-      span {
-        top: 4px;
-        left: 8px;
-        position: absolute;
-      }
-    }
-    &.orange .icon {
-      background: orange;
-      span {
-        top: 4px;
-        left: 2px;
-        position: absolute;
-      }
-    }
-    &.red .icon {
-      background: red;
-      span {
-        top: 4px;
-        left: 8px;
-        position: absolute;
-      }
+    .icon img {
+      height: 32px;
+      width: 32px;
+      -webkit-user-drag: none;
+      user-select: none;
     }
     &.text {
       font-size: 30px;
@@ -84,4 +57,9 @@
     flex-direction: column;
     gap: 5px;
   }
+}
+
+.center {
+  display: flex;
+  align-items: center;
 }
