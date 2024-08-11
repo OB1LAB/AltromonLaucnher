@@ -10,8 +10,13 @@ import HeaderPlayer from "./components/HeaderPlayer/HeaderPlayer";
 import SelectServer from "./components/SelectServer/SelectServer";
 const { ipcRenderer } = window.require("electron");
 
-function LauncherPage({ player, setIsAuth }) {
-  const [selectedServer, setSelectedServer] = useState("Hitech_1.12.2_forge");
+function LauncherPage({
+  player,
+  setIsAuth,
+  description,
+  selectedServer,
+  setSelectedServer,
+}) {
   const [step, setStep] = useState("Ожидание лаунчера");
   const [content, setContent] = useState("");
   const [progressDownload, setProgressDownload] = useState(0);
@@ -45,8 +50,11 @@ function LauncherPage({ player, setIsAuth }) {
         <HeaderButtons />
       </div>
       <div className="body">
-        <Description />
-        <ChangeLog />
+        <Description
+          description={description}
+          selectedServer={selectedServer}
+        />
+        <ChangeLog description={description} selectedServer={selectedServer} />
       </div>
       <div className="footer">
         <ButtonPlay action={() => setModal(true)} />

@@ -1,10 +1,47 @@
 import styles from "./Login.module.css";
+import AuthService from "../../../services/AuthService";
+import { toast } from "react-toastify";
 const { ipcRenderer } = window.require("electron");
-const Login = ({ setPage, setIsAuth, setPlayer, player }) => {
+const Login = ({
+  setPage,
+  setIsAuth,
+  player,
+  setPlayer,
+  password,
+  setPassword,
+  setDescription,
+}) => {
   const onKeyPress = (event) => {
     if (event.key === "Enter") {
+      login();
+    }
+  };
+  const login = async () => {
+    const toastId = toast.loading("Авторизируем...");
+    try {
+      const res = await AuthService.login(player, password);
+      const { uuid, accessToken, description } = res.data;
+      toast.update(toastId, {
+        render: "Авторизирован",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
+      ipcRenderer.send("launcher-setPlayer", {
+        player,
+        password,
+        uuid,
+        accessToken,
+      });
+      setDescription(description);
       setIsAuth(true);
-      ipcRenderer.send("launcher-setPlayer", player);
+    } catch (e) {
+      toast.update(toastId, {
+        render: e.response.data.message,
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
     }
   };
   return (
@@ -17,17 +54,16 @@ const Login = ({ setPage, setIsAuth, setPlayer, player }) => {
           placeholder="логин"
           onKeyUp={onKeyPress}
         />
-        <input placeholder="пароль" type="password" onKeyUp={onKeyPress} />
+        <input
+          placeholder="пароль"
+          type="password"
+          onKeyUp={onKeyPress}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </div>
       <div className={styles.buttons}>
-        <button
-          onClick={() => {
-            setIsAuth(true);
-            ipcRenderer.send("launcher-setPlayer", player);
-          }}
-        >
-          ВОЙТИ
-        </button>
+        <button onClick={login}>ВОЙТИ</button>
         <button onClick={() => setPage("register")} className={styles.register}>
           Зарегистрироваться
         </button>

@@ -4,7 +4,7 @@ const HeaderPlayer = ({ player, setIsAuth }) => {
   return (
     <div className={styles.player}>
       <img
-        src={`https://skins.mcskill.net/?name=${player}&mode=5&fx=48&fy=48`}
+        src={`${process.env.REACT_APP_SERVER_URL}/skins/textures/head/${player}`}
         alt={player}
         width={48}
         height={48}
