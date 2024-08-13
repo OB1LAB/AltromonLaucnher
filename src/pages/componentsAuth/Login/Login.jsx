@@ -3,7 +3,6 @@ import AuthService from "../../../services/AuthService";
 import { toast } from "react-toastify";
 const { ipcRenderer } = window.require("electron");
 const Login = ({
-  setPage,
   setIsAuth,
   player,
   setPlayer,
@@ -64,9 +63,6 @@ const Login = ({
       </div>
       <div className={styles.buttons}>
         <button onClick={login}>ВОЙТИ</button>
-        <button onClick={() => setPage("register")} className={styles.register}>
-          Зарегистрироваться
-        </button>
       </div>
     </div>
   );

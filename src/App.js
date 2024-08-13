@@ -8,12 +8,8 @@ const { ipcRenderer } = window.require("electron");
 
 function App() {
   const [selectedServer, setSelectedServer] = useState("Hitech_1.12.2_forge");
-  const [rToken, setRToken] = useState("");
   const [player, setPlayer] = useState("");
   const [password, setPassword] = useState("");
-  const [registerPlayer, setRegisterPlayer] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [registerRetryPassword, setRegisterRetryPassword] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [description, setDescription] = useState({
@@ -61,19 +57,11 @@ function App() {
     return (
       <div className="launcher">
         <AuthPage
+          setIsAuth={setIsAuth}
           player={player}
           setPlayer={setPlayer}
-          setIsAuth={setIsAuth}
           password={password}
           setPassword={setPassword}
-          registerPlayer={registerPlayer}
-          registerPassword={registerPassword}
-          registerRetryPassword={registerRetryPassword}
-          setRegisterPlayer={setRegisterPlayer}
-          setRegisterPassword={setRegisterPassword}
-          setRegisterRetryPassword={setRegisterRetryPassword}
-          rToken={rToken}
-          setRToken={setRToken}
           setDescription={setDescription}
         />
         <ModalLoading />
@@ -92,19 +80,11 @@ function App() {
         />
       ) : (
         <AuthPage
+          setIsAuth={setIsAuth}
           player={player}
           setPlayer={setPlayer}
-          setIsAuth={setIsAuth}
           password={password}
           setPassword={setPassword}
-          registerPlayer={registerPlayer}
-          registerPassword={registerPassword}
-          registerRetryPassword={registerRetryPassword}
-          setRegisterPlayer={setRegisterPlayer}
-          setRegisterPassword={setRegisterPassword}
-          setRegisterRetryPassword={setRegisterRetryPassword}
-          rToken={rToken}
-          setRToken={setRToken}
           setDescription={setDescription}
         />
       )}
