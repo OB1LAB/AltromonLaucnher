@@ -37,11 +37,12 @@
     button {
       font-size: 14px;
       font-weight: bold;
-      background: #282828;
+      background: #575dbd;
+      /*background: #282828;*/
       border-radius: 5px;
       padding: 5px 0;
       &:hover {
-        background: #3c3c3c;
+        background: #3e4693;
       }
     }
     .register {

@@ -2,26 +2,24 @@
   display: flex;
   justify-content: space-between;
   height: 70px;
-  background: #575dbd;
+  /*background: #575dbd;*/
   -webkit-app-region: drag;
   .name {
-    display: flex;
-    background: #30397c;
+    /*background: #30397c;*/
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("https://cdn.discordapp.com/attachments/1151577782908883106/1273067281500344380/altromonlauncher.png?ex=66bd43cc&is=66bbf24c&hm=b3cb481c79a6e7b62e4ce2ce420156496b10ac8ddba3021e6fb73dacb4604bc1&");
     color: #575dbd;
-    width: 340px;
-    height: 100%;
-    align-items: center;
-    font-size: 50px;
-    font-weight: bold;
-    padding-left: 20px;
-    clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+    width: 270px;
+    /*clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);*/
   }
 }
 
 .body {
   display: flex;
   height: 405px;
-  background: #212121;
+  /*background: #212121;*/
 }
 
 .footer {
@@ -29,5 +27,6 @@
   align-items: center;
   gap: 20px;
   height: 75px;
-  background: #1c1c1c;
+  /*backdrop-filter: blur(50px);*/
+  /*background: #1c1c1c;*/
 }

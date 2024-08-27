@@ -7,20 +7,15 @@ import AuthService from "./services/AuthService";
 const { ipcRenderer } = window.require("electron");
 
 function App() {
-  const [selectedServer, setSelectedServer] = useState("Hitech_1.12.2_forge");
+  const [selectedServer, setSelectedServer] = useState("");
   const [player, setPlayer] = useState("");
   const [password, setPassword] = useState("");
   const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [description, setDescription] = useState({
-    "Hitech_1.12.2_forge": {
-      about: "Инфа про Хайтек",
-      mods: "Есть",
-      changeLog: [],
-    },
-    "Survival_1.20.1_vanila": {
-      about: "Инфа про Ванилу",
-      mods: "Есть",
+    "": {
+      about: "",
+      mods: "",
       changeLog: [],
     },
   });
@@ -33,6 +28,7 @@ function App() {
         password: passwordLauncher,
         uuid,
         accessToken,
+        description,
       });
       setDescription(description);
       setPlayer(playerLauncher);
@@ -63,6 +59,8 @@ function App() {
           password={password}
           setPassword={setPassword}
           setDescription={setDescription}
+          selectedServer={selectedServer}
+          setSelectedServer={setSelectedServer}
         />
         <ModalLoading />
       </div>
@@ -86,6 +84,8 @@ function App() {
           password={password}
           setPassword={setPassword}
           setDescription={setDescription}
+          selectedServer={selectedServer}
+          setSelectedServer={setSelectedServer}
         />
       )}
     </div>

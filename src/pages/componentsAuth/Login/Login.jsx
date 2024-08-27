@@ -9,6 +9,8 @@ const Login = ({
   password,
   setPassword,
   setDescription,
+  selectedServer,
+  setSelectedServer,
 }) => {
   const onKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -31,8 +33,15 @@ const Login = ({
         password,
         uuid,
         accessToken,
+        description,
       });
       setDescription(description);
+      if (
+        selectedServer.length === 0 ||
+        !Object.keys(description).includes(selectedServer)
+      ) {
+        setSelectedServer(Object.keys(description)[0]);
+      }
       setIsAuth(true);
     } catch (e) {
       toast.update(toastId, {

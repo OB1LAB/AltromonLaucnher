@@ -4,22 +4,8 @@ import { useEffect, useState } from "react";
 import OnlineService from "../../../services/OnlineService";
 const { ipcRenderer } = window.require("electron");
 
-const data = [
-  {
-    label: "HiTech 1.12.2",
-    value: "Hitech_1.12.2_forge",
-  },
-  {
-    label: "Survival 1.20.1",
-    value: "Survival_1.20.1_vanila",
-  },
-];
-
-const SelectServer = ({ selectedServer, setSelectedServer }) => {
-  const [online, setOnline] = useState({
-    "Survival_1.20.1_vanila": [],
-    "Hitech_1.12.2_forge": [],
-  });
+const SelectServer = ({ selectedServer, setSelectedServer, description }) => {
+  const [online, setOnline] = useState({});
   const getOnline = async () => {
     try {
       const res = await OnlineService.get();
@@ -40,13 +26,17 @@ const SelectServer = ({ selectedServer, setSelectedServer }) => {
         block
         searchable={false}
         cleanable={false}
-        defaultValue={"Hitech_1.12.2_forge"}
         value={selectedServer}
         onChange={(server) => {
           setSelectedServer(server);
           ipcRenderer.send("launcher-setServer", server);
         }}
-        data={data}
+        data={Object.keys(description).map((item) => {
+          return {
+            label: description[item].name,
+            value: item,
+          };
+        })}
         placement="topEnd"
         style={{ width: 180 }}
       />
@@ -54,7 +44,8 @@ const SelectServer = ({ selectedServer, setSelectedServer }) => {
         placement="top"
         speaker={
           <Tooltip>
-            {online[selectedServer].length > 0
+            {Object.keys(online).includes(selectedServer) &&
+            online[selectedServer].length > 0
               ? online[selectedServer].map((player) => {
                   return <div key={player}>{player}</div>;
                 })
@@ -62,7 +53,12 @@ const SelectServer = ({ selectedServer, setSelectedServer }) => {
           </Tooltip>
         }
       >
-        <div>Онлайн: {online[selectedServer].length}</div>
+        <div>
+          Онлайн:{" "}
+          {Object.keys(online).includes(selectedServer)
+            ? online[selectedServer].length
+            : 0}
+        </div>
       </Whisper>
     </div>
   );

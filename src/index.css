@@ -9,7 +9,8 @@
 
 body {
   color: white;
-  background: black;
+  background-image: url("https://cdn.discordapp.com/attachments/1151577782908883106/1273056034470101143/background.png?ex=66bd3952&is=66bbe7d2&hm=d54bc3b99e8cfb0014d606b4a958f1a698ffd5f3457ffa84bd4ba598ccf696b1&");
+  background-size: cover;
 }
 
 .rs-picker-popup {
@@ -24,6 +25,7 @@ body {
   }
   .rs-picker-select-menu-item {
     color: #e5e5e5;
+    --rs-listbox-option-hover-bg: transperent;
     &:hover {
       background: #242424;
     }

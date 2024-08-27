@@ -10,11 +10,16 @@ const AuthPage = ({
   password,
   setPassword,
   setDescription,
+  selectedServer,
+  setSelectedServer,
 }) => {
   return (
     <div className="auth">
       <div className="header">
-        <div className="name">ALTROMON</div>
+        <div
+          className="name"
+          style={{ marginLeft: "auto", marginRight: "auto" }}
+        ></div>
         <HeaderButtons />
       </div>
       <div className="body authCenter">
@@ -26,6 +31,8 @@ const AuthPage = ({
             password={password}
             setPassword={setPassword}
             setDescription={setDescription}
+            selectedServer={selectedServer}
+            setSelectedServer={setSelectedServer}
           />
         </div>
       </div>

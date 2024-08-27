@@ -6,14 +6,17 @@
   height: 405px;
   width: 270px;
   max-height: 405px;
-  background: #242424;
+  backdrop-filter: blur(10px);
+  /*background: #242424;*/
   padding: 10px;
   .block {
     padding: 7px;
-    background: #2a2a2a;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     font-size: 14px;
     &.about {
+      background: rgba(0, 0, 0, 0);
       font-size: 22px;
     }
   }

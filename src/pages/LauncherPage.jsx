@@ -45,7 +45,7 @@ function LauncherPage({
   return (
     <div>
       <div className="header">
-        <div className="name">ALTROMON</div>
+        <div className="name"></div>
         <HeaderPlayer player={player} setIsAuth={setIsAuth} />
         <HeaderButtons />
       </div>
@@ -61,6 +61,7 @@ function LauncherPage({
         <SelectServer
           selectedServer={selectedServer}
           setSelectedServer={setSelectedServer}
+          description={description}
         />
         <ExternalInfo />
       </div>

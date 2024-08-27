@@ -10,7 +10,8 @@
   font-size: 18px;
   .block {
     padding: 7px;
-    background: #232323;
+    /*background: #232323;*/
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     font-size: 16px;
     &.update {
@@ -36,6 +37,7 @@
       user-select: none;
     }
     &.text {
+      background: rgba(0, 0, 0, 0);
       font-size: 30px;
     }
   }
