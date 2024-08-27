@@ -9,7 +9,7 @@
 
 body {
   color: white;
-  background-image: url("https://cdn.discordapp.com/attachments/1151577782908883106/1273056034470101143/background.png?ex=66bd3952&is=66bbe7d2&hm=d54bc3b99e8cfb0014d606b4a958f1a698ffd5f3457ffa84bd4ba598ccf696b1&");
+  background-image: url("../public/background.png");
   background-size: cover;
 }
 
