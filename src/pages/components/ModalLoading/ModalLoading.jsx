@@ -12,7 +12,7 @@ const ModalStart = () => {
             wrapperStyle={{}}
             visible={true}
           />
-          <div>Загрука...</div>
+          <div>Авторизация...</div>
         </div>
       </div>
     </div>

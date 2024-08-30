@@ -44,10 +44,13 @@ function App() {
         if (data.selectedServer) {
           setSelectedServer(data.selectedServer);
         }
-        login(data.player, data.password);
+        login(data.player, data.password).then(() => {
+          setIsLoading(false);
+        });
+      } else {
+        setIsLoading(false);
       }
     });
-    setIsLoading(false);
   }, []);
   if (isLoading) {
     return (
